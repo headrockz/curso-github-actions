@@ -1,10 +1,12 @@
 version: '3'
 services:
-  app:
-    image: golang-test
-    build: .
-    ports:
-      - "8085:8080"
+  # app:
+  #   image: golang-test
+  #   build: .
+  #   ports:
+  #     - "8085:8080"
+  #   depends_on:
+  #     - postgres
 
   postgres:
     image: "postgres"
@@ -15,7 +17,7 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - /postgres-data:/var/lib/postgresql/data  
+      - ./postgres-data:/var/lib/postgresql/data  
 
   pgadmin-compose:
     image: dpage/pgadmin4
